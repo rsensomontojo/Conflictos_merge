@@ -138,7 +138,3 @@ Cuando dos personas trabajan en el mismo archivo o directorio (lo normal es la d
 
 
 ---
-
-## Conclusión
-
-Este flujo de trabajo permite a dos personas colaborar en un mismo repositorio Git de manera efectiva. Si surgen conflictos, Git proporciona herramientas para resolverlos de manera manual y mantener el código sincronizado. La clave es la comunicación y el uso adecuado de las funcionalidades de Git.
