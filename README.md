@@ -1,10 +1,10 @@
 # Flujo Básico para Colaborar en un Repositorio Git
 
-Este documento describe el flujo básico para que dos personas trabajen en el mismo repositorio Git, incluyendo cómo manejar conflictos cuando ambos editan los mismos archivos.
+Este documento describe el flujo básico para que dos personas trabajen en el mismo repositorio Git, incluye cómo manejar conflictos cuando ambos editan los mismos archivos.
 
 ---
 
-## Flujo de Trabajo para Persona 1
+## Flujo de Trabajo para la primera persona
 
 1. **Inicializar o clonar el repositorio**:
    - Si es un nuevo repositorio, inicia uno con:
@@ -18,13 +18,14 @@ Este documento describe el flujo básico para que dos personas trabajen en el mi
 
 2. **Realizar cambios y hacer commit**:
    - Edita los archivos en tu máquina.
+   - Guarda los cambios en los archivos de tu máquina
    - Añade los cambios al área de preparación con:
      ```bash
      git add <archivo-o-directorio>
      ```
    - Realiza un commit con:
      ```bash
-     git commit -m "Mensaje descriptivo del commit"
+     git commit -m "Explicación breve del commit"
      ```
 
 3. **Enlazar el repositorio local con el remoto**:
@@ -41,7 +42,7 @@ Este documento describe el flujo básico para que dos personas trabajen en el mi
 
 ---
 
-## Flujo de Trabajo para Persona 2
+## Flujo de Trabajo para la segunda persona
 
 1. **Clonar el repositorio**:
    - Clona el repositorio remoto en tu máquina:
@@ -49,8 +50,15 @@ Este documento describe el flujo básico para que dos personas trabajen en el mi
      git clone <url-del-repositorio-remoto>
      ```
 
-2. **Realizar cambios y hacer commit**:
+2. **Obtener cambios recientes**:
+   - Antes de nada, obtén los últimos cambios del repositorio remoto:
+     ```bash
+     git pull origin main
+     ```
+     
+3. **Realizar cambios y hacer commit**:
    - Edita los archivos en tu máquina.
+   - Guarda los archivos en tu máquina con los cambios
    - Añade los cambios al área de preparación con:
      ```bash
      git add <archivo-o-directorio>
@@ -59,18 +67,17 @@ Este documento describe el flujo básico para que dos personas trabajen en el mi
      ```bash
      git commit -m "Mensaje descriptivo del commit"
      ```
-
-3. **Obtener cambios recientes**:
-   - Antes de subir tus cambios, obtén los últimos cambios del repositorio remoto:
-     ```bash
-     git pull origin main
+   -Modifica el archivo:
+      ```bash
+     git merge origin main/carpeta/rama
      ```
+   
 
 ---
 
 ## Manejo de Conflictos al Hacer Merge
 
-Cuando dos personas trabajan en el mismo archivo o directorio, es posible que surjan conflictos al intentar fusionar (`merge`) los cambios. Git intentará fusionar automáticamente, pero si los cambios son incompatibles (por ejemplo, ambas personas editaron la misma línea de un archivo), se producirá un **conflicto de merge**.
+Cuando dos personas trabajan en el mismo archivo o directorio (lo normal es la división de áreas de trabajo para que no haya conflicto) , es posible que surjan conflictos al intentar fusionar (`merge`) los cambios. Git intentará fusionar automáticamente, pero si los cambios son incompatibles (por ejemplo, ambas personas editaron la misma línea de un archivo), se producirá un **conflicto de merge**.
 
 ### ¿Qué sucede durante un conflicto de merge?
 
@@ -118,7 +125,7 @@ Cuando dos personas trabajan en el mismo archivo o directorio, es posible que su
 ## Consejos para Evitar Conflictos
 
 1. **Comunicación constante**:
-   - Coordina con tu equipo para evitar trabajar en los mismos archivos al mismo tiempo.
+   - La coordinación es fundamental para evitar trabajar en los mismos archivos al mismo tiempo.
 
 2. **Trabajar en ramas separadas**:
    - Crea ramas (`branches`) para trabajar en funcionalidades específicas. Luego, fusiona (`merge`) las ramas cuando estén listas.
@@ -129,8 +136,6 @@ Cuando dos personas trabajan en el mismo archivo o directorio, es posible que su
      git pull origin main
      ```
 
-4. **Usar herramientas gráficas**:
-   - Herramientas como **GitHub Desktop**, **SourceTree** o **VS Code** pueden facilitar la resolución de conflictos.
 
 ---
 
